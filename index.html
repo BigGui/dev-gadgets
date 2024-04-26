@@ -28,11 +28,11 @@
     <main class="page">
         <h1 class="page-ttl">Canard jaune pour la revue de code</h1>
         <section class="page-pics">
-            <div class="pictures">
-                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev">◀️</button>
+            <div id="pictures" class="pictures">
+                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev" data-dir="prev">◀️</button>
                 <img id="pictures-img" class="pictures-img" src="img/canard-jaune-1-l.png"
                     alt="canard jaune pour dévloppeur">
-                <button id="pictures-next" type="button" class="pictures-handler pictures-next">▶️</button>
+                <button id="pictures-next" type="button" class="pictures-handler pictures-next" data-dir="next">▶️</button>
                 <ul id="thumbs" class="thumbs">
                     <li class="thumbs-itm">
                         <img class="thumbs-img" src="img/canard-jaune-1-s.png" alt="canard"
@@ -165,7 +165,7 @@
         </nav>
         <div class="footer-cp">© 2024 - Dev Gadgets</div>
     </footer>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 
 </html>

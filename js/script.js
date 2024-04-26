@@ -1,39 +1,10 @@
-// PICTURES
-
-let imgCount = 0;
-const thumbs = Array.from(document.querySelectorAll("#thumbs img[data-src-large]"));
-const picturesUrl = thumbs.map(img => img.dataset.srcLarge);
-
-thumbs.forEach((img, i) => {
-    img.addEventListener("mouseover", function() {
-        imgCount = i;
-        displayImageUrl(this.dataset.srcLarge);
-    })
-})
-
-document.getElementById("pictures-prev").addEventListener("click", function() {
-    imgCount--;
-    if (imgCount < 0) imgCount = picturesUrl.length - 1;
-    updateMainPicture();
-})
-document.getElementById("pictures-next").addEventListener("click", function() {
-    imgCount++;
-    updateMainPicture();    
-})
-
-function updateMainPicture() {
-    displayImageUrl(picturesUrl[imgCount%picturesUrl.length]);
-}
-
-function displayImageUrl(url) {
-    document.getElementById("pictures-img").src = url;
-}
+import initPictures from "./pictures.js";
 
 
 // ACCORDIONS
 
 document.querySelectorAll("[data-accordion-for]").forEach(element => {
-    element.addEventListener("click", function(event) {
+    element.addEventListener("click", function (event) {
         this.classList.toggle("closed");
         const content = document.getElementById(this.dataset.accordionFor);
         if (this.classList.contains("closed")) content.classList.add("hidden");
@@ -59,7 +30,7 @@ function disableCta() {
     cta.innerText = "Déjà au panier";
 }
 
-document.getElementById("add-to-cart").addEventListener("click", function(event) {
+document.getElementById("add-to-cart").addEventListener("click", function (event) {
     if (this.classList.contains("disabled")) return;
     const qty = getQuantity();
     if (qty > 0) {
@@ -77,25 +48,29 @@ const carouselPrev = document.getElementById("carousel-prev");
 const carouselNext = document.getElementById("carousel-next");
 updateCarouselHandlers();
 
-carouselPrev.addEventListener("click", function() {
+carouselPrev.addEventListener("click", function () {
     carouselCount--;
     carouselCount %= carouselTotal;
     updateCarousel();
 })
-carouselNext.addEventListener("click", function() {
+carouselNext.addEventListener("click", function () {
     carouselCount++;
     carouselCount %= carouselTotal;
-    updateCarousel();    
+    updateCarousel();
 })
 
 function updateCarouselHandlers() {
     carouselPrev.classList.remove("hidden");
     carouselNext.classList.remove("hidden");
     if (carouselCount === 0) carouselPrev.classList.add("hidden");
-    if (carouselCount === carouselTotal-1) carouselNext.classList.add("hidden");
+    if (carouselCount === carouselTotal - 1) carouselNext.classList.add("hidden");
 }
 
 function updateCarousel() {
     updateCarouselHandlers();
-    document.querySelector(".carousel-content").style.left = `-${carouselCount%carouselTotal*100}vw`;
+    document.querySelector(".carousel-content").style.left = `-${carouselCount % carouselTotal * 100}vw`;
 }
+
+
+// Initialize pictures gallery
+initPictures();
