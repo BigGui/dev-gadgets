@@ -1,43 +1,7 @@
 import initPictures from "./pictures.js";
+import initAccordions from "./accordions.js";
+import initCart from "./cart.js";
 
-
-// ACCORDIONS
-
-document.querySelectorAll("[data-accordion-for]").forEach(element => {
-    element.addEventListener("click", function (event) {
-        this.classList.toggle("closed");
-        const content = document.getElementById(this.dataset.accordionFor);
-        if (this.classList.contains("closed")) content.classList.add("hidden");
-        else content.classList.remove("hidden");
-    })
-})
-
-
-// ADD TO CART
-
-function getQuantity() {
-    return parseInt(document.getElementById("quantity").value) || 1;
-}
-
-function updateCart(quantity) {
-    if (quantity > 99) quantity = "99+";
-    return document.getElementById("cart-nb").innerText = quantity;
-}
-
-function disableCta() {
-    const cta = document.getElementById("add-to-cart");
-    cta.classList.add("disabled");
-    cta.innerText = "Déjà au panier";
-}
-
-document.getElementById("add-to-cart").addEventListener("click", function (event) {
-    if (this.classList.contains("disabled")) return;
-    const qty = getQuantity();
-    if (qty > 0) {
-        updateCart(qty);
-        disableCta();
-    }
-})
 
 
 // RELATED PRODUCTS
@@ -74,3 +38,9 @@ function updateCarousel() {
 
 // Initialize pictures gallery
 initPictures();
+
+// Initialize all accordions
+initAccordions();
+
+// Initialize Add to cart functionnality
+initCart();
