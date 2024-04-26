@@ -5,8 +5,8 @@ import {
 
 
 /**
- * Hide ou show buttons on mobile carousel
- * depends on which item is displayed
+ * Hide or show buttons on mobile carousel,
+ * depends on which item is displayed.
  * @param {number} indexDisplayed - The Current displayed item index
  */
 function updateCarouselHandlers(indexDisplayed) {
@@ -23,7 +23,7 @@ function updateCarouselHandlers(indexDisplayed) {
 }
 
 /**
- * Get thte number of items in the carousel.
+ * Get the number of items in the carousel.
  * @returns {number} The number of items
  */
 function getNbItem() {
@@ -46,14 +46,14 @@ function moveCarouselTo(indexToDisplay) {
 /**
  * Format a given price to display it with € symbol.
  * @param {number} price - The price to display 
- * @returns {string} string to display a price with € currency symbol
+ * @returns {string} string to display the price with € symbol.
  */
 function formatPrice(price) {
     return price.toFixed(2).replace(".", "€");
 }
 
 /**
- * Create a new item for the carousel from the template and the given data. 
+ * Create a new carousel item from the template and the given data. 
  * @param {object} data - Item data in an object  
  * @returns {element} Item element create from template and given data.
  */
@@ -89,7 +89,7 @@ export default function initCarousel() {
             // Initialize a global counter to manage carousel moves.
             let counter = 0;
 
-            // Update button display
+            // Display or hide buttons
             updateCarouselHandlers(counter);
 
             // Initialize event handlers on carousel buttons
