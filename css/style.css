@@ -162,9 +162,10 @@ body {
 }
 
 .product-acrd-lnk {
+    display: block;
     position: relative;
     text-align: left;
-    cursor: pointer;
+    color: inherit;
 }
 .product-acrd-lnk::after {
     content: "🔺";
