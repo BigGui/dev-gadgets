@@ -57,13 +57,6 @@ button {
     background: none;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
 body {
     font-family: var(--primary-font);
 }
