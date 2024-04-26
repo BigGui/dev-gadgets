@@ -17,7 +17,7 @@ function updateCarouselHandlers(indexDisplayed) {
         document.getElementById("carousel-prev").classList.add("hidden");
     }
 
-    if (indexDisplayed === getNbItem() - 1) {
+    if (indexDisplayed >= getNbItem() - 1) {
         document.getElementById("carousel-next").classList.add("hidden");
     }
 }
@@ -35,10 +35,13 @@ function getNbItem() {
  * @param {number} indexToDisplay - The item index to display
  */
 function moveCarouselTo(indexToDisplay) {
+
+    // Move carousel to the selected item
     document.querySelector(".js-carousel-content").style.left = `-${indexToDisplay * 100}vw`;
+    
+    // Update buttons
     updateCarouselHandlers(indexToDisplay);
 }
-
 
 /**
  * Format a given price to display it with € symbol.
@@ -97,6 +100,11 @@ export default function initCarousel() {
                         counter %= getNbItem();
                         moveCarouselTo(counter);
                     });
+
+                    // Remove scroll on carousel when buttons are focused.
+                    btn.addEventListener("focus", function() {
+                        document.querySelector("#carousel").scrollIntoView();
+                    })
                 });
         });
 }
