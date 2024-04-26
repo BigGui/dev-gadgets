@@ -29,10 +29,12 @@
         <h1 class="page-ttl">Canard jaune pour la revue de code</h1>
         <section class="page-pics">
             <div id="pictures" class="pictures">
-                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev" data-dir="prev">◀️</button>
+                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev"
+                    data-dir="prev">◀️</button>
                 <img id="pictures-img" class="pictures-img" src="img/canard-jaune-1-l.png"
                     alt="canard jaune pour dévloppeur">
-                <button id="pictures-next" type="button" class="pictures-handler pictures-next" data-dir="next">▶️</button>
+                <button id="pictures-next" type="button" class="pictures-handler pictures-next"
+                    data-dir="next">▶️</button>
                 <ul id="thumbs" class="thumbs">
                     <li class="thumbs-itm">
                         <img class="thumbs-img" src="img/canard-jaune-1-s.png" alt="canard"
@@ -61,7 +63,8 @@
             </div>
             <div class="add">
                 <input id="quantity" class="add-qty" type="text" value="1">
-                <button id="add-to-cart" class="add-cta" type="button" data-diabled-text="Déjà au panier">Ajouter au panier</button>
+                <button id="add-to-cart" class="add-cta" type="button" data-diabled-text="Déjà au panier">Ajouter au
+                    panier</button>
             </div>
         </section>
         <section class="page-txt page-section">
@@ -99,37 +102,11 @@
             <h2 class="product-subttl">Articles similaires</h2>
             <div id="carousel" class="carousel">
                 <ul class="similar-lst carousel-content js-carousel-content">
-                    <li class="similar-itm js-carousel-itm">
-                        <a class="similar-lnk" href="#">
-                            <img class="similar-img" src="img/canard-dragon.png" alt="canard dragon">
-                            <h3 class="similar-ttl">Canard Dragon</h3>
-                            <div class="similar-price">19€95</div>
-                        </a>
-                    </li>
-                    <li class="similar-itm js-carousel-itm">
-                        <a class="similar-lnk" href="#">
-                            <img class="similar-img" src="img/canard-geek.png" alt="canard geek">
-                            <h3 class="similar-ttl">Canard Geek</h3>
-                            <div class="similar-price">19€95</div>
-                        </a>
-                    </li>
-                    <li class="similar-itm js-carousel-itm">
-                        <a class="similar-lnk" href="#">
-                            <img class="similar-img" src="img/canard-licorne.png" alt="canard licorne">
-                            <h3 class="similar-ttl">Canard Licorne</h3>
-                            <div class="similar-price">19€95</div>
-                        </a>
-                    </li>
-                    <li class="similar-itm js-carousel-itm">
-                        <a class="similar-lnk" href="#">
-                            <img class="similar-img" src="img/canard-bowie.png" alt="canard David Bowie">
-                            <h3 class="similar-ttl">Ziggy StarDuck</h3>
-                            <div class="similar-price">19€95</div>
-                        </a>
-                    </li>
                 </ul>
-                <button id="carousel-prev" type="button" class="carousel-handler carousel-prev" data-dir="prev">◀️</button>
-                <button id="carousel-next" type="button" class="carousel-handler carousel-next" data-dir="next">▶️</button>
+                <button id="carousel-prev" type="button" class="carousel-handler carousel-prev"
+                    data-dir="prev">◀️</button>
+                <button id="carousel-next" type="button" class="carousel-handler carousel-next"
+                    data-dir="next">▶️</button>
             </div>
         </section>
     </main>
@@ -165,6 +142,17 @@
         </nav>
         <div class="footer-cp">© 2024 - Dev Gadgets</div>
     </footer>
+
+    <template id="carousel-item-template">
+        <li class="similar-itm js-carousel-itm">
+            <a class="similar-lnk" href="#">
+                <img class="similar-img js-img" src="img/canard-bowie.png" alt="canard David Bowie">
+                <h3 class="similar-ttl js-ttl">Ziggy StarDuck</h3>
+                <div class="similar-price js-price">19€95</div>
+            </a>
+        </li>
+    </template>
+
     <script type="module" src="js/script.js"></script>
 </body>
 

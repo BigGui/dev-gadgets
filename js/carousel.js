@@ -1,3 +1,8 @@
+import getProductsFromAPI from "./api.js";
+import {
+    getSomeRandomValues
+} from "./array.js";
+
 
 /**
  * Hide ou show buttons on mobile carousel
@@ -34,19 +39,64 @@ function moveCarouselTo(indexToDisplay) {
     updateCarouselHandlers(indexToDisplay);
 }
 
+
+/**
+ * Format a given price to display it with € symbol.
+ * @param {number} price - The price to display 
+ * @returns {string} string to display a price with € currency symbol
+ */
+function formatPrice(price) {
+    return price.toFixed(2).replace(".", "€");
+}
+
+/**
+ * Create a new item for the carousel from the template and the given data. 
+ * @param {object} data - Item data in an object  
+ * @returns {element} Item element create from template and given data.
+ */
+function getNewitem(data) {
+    const element = document.importNode(document.querySelector("#carousel-item-template").content, true);
+
+    element.querySelector(".js-img").src = "img/" + data.picture;
+    element.querySelector(".js-img").setAttribute("alt", data.name);
+    element.querySelector(".js-ttl").textContent = data.name;
+    element.querySelector(".js-price").textContent = formatPrice(data.price);
+
+    return element;
+}
+
 /**
  * Initialize carousel
  */
 export default function initCarousel() {
-    let counter = 0;
-    updateCarouselHandlers(counter);
 
-    document.querySelectorAll("#carousel button[data-dir]")
-        .forEach(btn => {
-            btn.addEventListener("click", function () {
-                counter += this.dataset.dir === "prev" ? -1 : 1;
-                counter %= getNbItem();
-                moveCarouselTo(counter);
-            });
+    // Load products data from JSON file
+    getProductsFromAPI()
+        .then(products => {
+
+            // Select 4 products randomly
+            // Generate their elements from template
+            // Add those elements to the carousel
+            document.querySelector(".js-carousel-content")
+                .append(
+                    ...getSomeRandomValues(products.filter(p => p.id !== 1), 4)
+                        .map(getNewitem)
+                );
+
+            // Initialize a global counter to manage carousel moves.
+            let counter = 0;
+
+            // Update button display
+            updateCarouselHandlers(counter);
+
+            // Initialize event handlers on carousel buttons
+            document.querySelectorAll("#carousel button[data-dir]")
+                .forEach(btn => {
+                    btn.addEventListener("click", function () {
+                        counter += this.dataset.dir === "prev" ? -1 : 1;
+                        counter %= getNbItem();
+                        moveCarouselTo(counter);
+                    });
+                });
         });
 }
