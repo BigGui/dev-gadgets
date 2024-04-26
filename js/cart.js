@@ -21,21 +21,44 @@ function updateCart(quantity) {
  * Disable add to cart CTA and change the text
  */
 function disableCta() {
-    const cta = document.getElementById("add-to-cart");
-    cta.classList.add("disabled");
+
+    // Get the button
+    const cta = document.querySelector("#add-to-cart");
+
+    // Change button status to disabled
+    cta.disabled = true;
+
+    // Change text for disabled text if available
     if (cta.dataset.diabledText) cta.innerText = cta.dataset.diabledText;
+}
+
+/**
+ * Get a boolean to know if the add to cart CTA has already been disbled ?
+ * @returns {boolean} Is the CTA diabled ?
+ */
+function isCtaDisabled() {
+    return document.querySelector("#add-to-cart").disabled;
 }
 
 /**
  * Initialize evant handler on add to cart CTA
  */
 export default function initCart() {
-    document.getElementById("add-to-cart").addEventListener("click", function (event) {
-        if (this.classList.contains("disabled")) return;
-        const qty = getQuantity();
-        if (qty > 0) {
-            updateCart(qty);
-            disableCta();
-        }
-    })
+    document.querySelector("#cart-form")
+        .addEventListener("submit", function (e) {
+            // Don't send the form, stay on page
+            e.preventDefault();
+
+            // If the CTA has already been disabled, don't move !
+            if (isCtaDisabled()) return;
+
+            // Get quantity from input field
+            const qty = getQuantity();
+
+            // Update cart and disable CTA
+            if (qty > 0) {
+                updateCart(qty);
+                disableCta();
+            }
+        });
 }

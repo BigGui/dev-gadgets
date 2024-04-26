@@ -290,7 +290,7 @@ body {
     background-color: var(--background-dark)
 }
 
-.add-cta.disabled {
+.add-cta:disabled {
     background-color: var(--background-dark)
 }
 

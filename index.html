@@ -36,8 +36,7 @@
                 </button>
                 <img id="pictures-img" class="pictures-img" src="img/canard-jaune-1-l.png"
                     alt="canard jaune pour dévloppeur">
-                <button id="pictures-next" type="button" class="pictures-handler pictures-next"
-                    data-dir="next">
+                <button id="pictures-next" type="button" class="pictures-handler pictures-next" data-dir="next">
                     <span class="sr-only">image suivante</span>
                     <span aria-hidden="true">▶️</span>
                 </button>
@@ -67,11 +66,12 @@
             <div class="price">
                 11€95
             </div>
-            <div class="add">
-                <input id="quantity" class="add-qty" type="text" value="1">
-                <button id="add-to-cart" class="add-cta" type="button" data-diabled-text="Déjà au panier">Ajouter au
+            <form id="cart-form" class="add" action="#" method="get">
+                <label for="quantity" class="sr-only">Quantité à ajouter au panier</label>
+                <input name="quantity" id="quantity" class="add-qty" type="text" value="1">
+                <button id="add-to-cart" class="add-cta" type="submit" data-diabled-text="Déjà au panier">Ajouter au
                     panier</button>
-            </div>
+            </form>
         </section>
         <section class="page-txt page-section" aria-label="Description du produit">
             <p class="product-descr">Ce canard va devenir votre meilleur allié pour le développement de vos projets les
@@ -80,7 +80,8 @@
                 discret et joyeux vous aidera à trouver les solutions à toutes vos problématiques !</p>
             <div>
                 <h2 class="product-subttl" id="advantages-ttl">
-                    <a class="product-acrd-lnk" href="#advantages" data-accordion-for="advantages" aria-controls="advantages" aria-expanded="true">Avantages</a>
+                    <a class="product-acrd-lnk" href="#advantages" data-accordion-for="advantages"
+                        aria-controls="advantages" aria-expanded="true">Avantages</a>
                 </h2>
                 <ul id="advantages" class="product-advantages" aria-labelledby="advantages-ttl">
                     <li>Un nouveau compagnon de pair programming</li>
@@ -92,7 +93,8 @@
             </div>
             <div>
                 <h2 class="product-subttl" id="details-ttl">
-                    <a class="product-acrd-lnk" href="#details" data-accordion-for="details" aria-controls="details" aria-expanded="true">Caractéristiques</a>
+                    <a class="product-acrd-lnk" href="#details" data-accordion-for="details" aria-controls="details"
+                        aria-expanded="true">Caractéristiques</a>
                 </h2>
                 <dl id="details" class="product-car" aria-labelledby="details-ttl">
                     <dt>Dimensions</dt>
@@ -113,13 +115,11 @@
             <div id="carousel" class="carousel">
                 <ul class="similar-lst carousel-content js-carousel-content">
                 </ul>
-                <button id="carousel-prev" type="button" class="carousel-handler carousel-prev"
-                    data-dir="prev">
+                <button id="carousel-prev" type="button" class="carousel-handler carousel-prev" data-dir="prev">
                     <span class="sr-only">produit précédent</span>
                     <span aria-hidden="true">◀️</span>
                 </button>
-                <button id="carousel-next" type="button" class="carousel-handler carousel-next"
-                    data-dir="next">
+                <button id="carousel-next" type="button" class="carousel-handler carousel-next" data-dir="next">
                     <span class="sr-only">produit suivant</span>
                     <span aria-hidden="true">▶️</span>
                 </button>
