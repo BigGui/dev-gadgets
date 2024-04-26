@@ -42,6 +42,8 @@ function openOrCloseAccordion(accordionElement) {
     const id = accordionElement.dataset.accordionFor;
     const isOpen = !accordionElement.classList.contains("closed");
 
+    accordionElement.setAttribute("aria-expended", isOpen);
+
     if (!isOpen) document.getElementById(id).classList.add("hidden");
     else document.getElementById(id).classList.remove("hidden");
 

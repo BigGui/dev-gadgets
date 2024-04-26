@@ -22,19 +22,25 @@
             <a class="cart" href="#">
                 <img class="cart-img" src="img/cart.png" alt="panier">
                 <span id="cart-nb" class="cart-nb">0</span>
+                <span class="sr-only"> articles dans le panier </span>
             </a>
         </div>
     </header>
     <main class="page">
         <h1 class="page-ttl">Canard jaune pour la revue de code</h1>
-        <section class="page-pics">
+        <section class="page-pics" aria-label="La fiche du produit">
             <div id="pictures" class="pictures">
-                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev"
-                    data-dir="prev">◀️</button>
+                <button id="pictures-prev" type="button" class="pictures-handler pictures-prev" data-dir="prev">
+                    <span class="sr-only">image précédente</span>
+                    <span aria-hidden="true">◀️</span>
+                </button>
                 <img id="pictures-img" class="pictures-img" src="img/canard-jaune-1-l.png"
                     alt="canard jaune pour dévloppeur">
                 <button id="pictures-next" type="button" class="pictures-handler pictures-next"
-                    data-dir="next">▶️</button>
+                    data-dir="next">
+                    <span class="sr-only">image suivante</span>
+                    <span aria-hidden="true">▶️</span>
+                </button>
                 <ul id="thumbs" class="thumbs">
                     <li class="thumbs-itm">
                         <img class="thumbs-img" src="img/canard-jaune-1-s.png" alt="canard"
@@ -67,16 +73,16 @@
                     panier</button>
             </div>
         </section>
-        <section class="page-txt page-section">
+        <section class="page-txt page-section" aria-label="Description du produit">
             <p class="product-descr">Ce canard va devenir votre meilleur allié pour le développement de vos projets les
                 plus ambitieux ! Fidèle compagnon qui trônera à côté de vos écrans, vous pourrez lui expliquer les
                 problèmes que vous rencontrez avec votre code : refactoring, bugs, algo complexe, … Ce nouveau collègue
                 discret et joyeux vous aidera à trouver les solutions à toutes vos problématiques !</p>
             <div>
-                <h2 class="product-subttl">
-                    <a class="product-acrd-lnk" href="#advantages" data-accordion-for="advantages">Avantages</a>
+                <h2 class="product-subttl" id="advantages-ttl">
+                    <a class="product-acrd-lnk" href="#advantages" data-accordion-for="advantages" aria-controls="advantages" aria-expanded="true">Avantages</a>
                 </h2>
-                <ul id="advantages" class="product-advantages">
+                <ul id="advantages" class="product-advantages" aria-labelledby="advantages-ttl">
                     <li>Un nouveau compagnon de pair programming</li>
                     <li>Repoussez les limites de votre code</li>
                     <li>Un collègue utile, joyeux et discret</li>
@@ -85,10 +91,10 @@
                 </ul>
             </div>
             <div>
-                <h2 class="product-subttl">
-                    <a class="product-acrd-lnk" href="#details" data-accordion-for="details">Caractéristiques</a>
+                <h2 class="product-subttl" id="details-ttl">
+                    <a class="product-acrd-lnk" href="#details" data-accordion-for="details" aria-controls="details" aria-expanded="true">Caractéristiques</a>
                 </h2>
-                <dl id="details" class="product-car">
+                <dl id="details" class="product-car" aria-labelledby="details-ttl">
                     <dt>Dimensions</dt>
                     <dd>10 cm x 9 cm x 12 cm</dd>
                     <dt>Matière</dt>
@@ -102,19 +108,25 @@
                 </dl>
             </div>
         </section>
-        <section class="similar page-section">
-            <h2 class="product-subttl">Articles similaires</h2>
+        <section class="similar page-section" aria-labelledby="related-title">
+            <h2 id="related-title" class="product-subttl">Articles similaires</h2>
             <div id="carousel" class="carousel">
                 <ul class="similar-lst carousel-content js-carousel-content">
                 </ul>
                 <button id="carousel-prev" type="button" class="carousel-handler carousel-prev"
-                    data-dir="prev">◀️</button>
+                    data-dir="prev">
+                    <span class="sr-only">produit précédent</span>
+                    <span aria-hidden="true">◀️</span>
+                </button>
                 <button id="carousel-next" type="button" class="carousel-handler carousel-next"
-                    data-dir="next">▶️</button>
+                    data-dir="next">
+                    <span class="sr-only">produit suivant</span>
+                    <span aria-hidden="true">▶️</span>
+                </button>
             </div>
         </section>
     </main>
-    <aside class="reinsur">
+    <aside class="reinsur" aria-label="Nos services">
         <ul class="reinsur-lst">
             <li class="reinsur-itm">
                 <img class="reinsur-img" src="img/delivery.png" alt="livraison gratuite">
@@ -131,7 +143,7 @@
         </ul>
     </aside>
     <footer class="footer">
-        <nav>
+        <nav aria-label="Navigation secondaire du site">
             <ul class="legal">
                 <li class="legal-itm">
                     <a class="legal-lnk" href="#">Mentions légales</a>
